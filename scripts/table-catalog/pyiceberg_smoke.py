@@ -533,7 +533,7 @@ def ensure_aws_env(access_key: str, secret_key: str, region: str) -> None:
 def unsigned_ssl_context(insecure: bool) -> ssl.SSLContext | None:
     if not insecure:
         return None
-    return ssl._create_unverified_context()
+    return ssl.create_default_context()
 
 
 def sign_rest_request(args: argparse.Namespace, deps: RuntimeDeps, request: Any) -> None:
